@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int adivinar(int num_secreto) {
+    int num_ingresado;
+    do {
+        printf("ingresa un numero para adivinar!\n");
+        scanf("%d", &num_ingresado);
+    }while (num_ingresado != num_secreto);
+}
+
+int adivinarNIntentos(int num_secreto, int intentos) {
+    int num_ingresado;
+    for (int i = 1; i <= intentos; i++) {
+        printf("ingresa un numero para adivinar!\n");
+        scanf("%d", &num_ingresado);
+        if (num_ingresado == num_secreto) {
+            return i;
+        }
+    }
+}
+int sumadigitos(int);
+
+int main(void) {
+    int num_secreto = 234, num_ingresado, intentos = 3;
+    /*int intentosCumplidos;
+    intentosCumplidos = adivinarNIntentos(num_secreto, intentos);
+    printf("te demoraste en adivinar: %d intentos\n", intentosCumplidos);*/
+    printf("ingresa un valor entero positivo para sumar sus digitos:  ");
+    scanf("%d", &num_ingresado);
+    printf("\nla suma de los digitos del número: %i, es: %i", num_ingresado, sumadigitos(num_ingresado));
+    return 0;
+}
+
+int sumadigitos(int numero) {
+    int sumadigitos = 0;
+    while (numero > 0) {
+        sumadigitos += numero % 10;
+        numero = numero / 10;
+    }
+    return sumadigitos;
+}
